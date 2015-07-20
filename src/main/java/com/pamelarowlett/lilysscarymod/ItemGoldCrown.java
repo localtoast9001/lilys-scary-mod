@@ -23,7 +23,7 @@ public class ItemGoldCrown extends ItemCrown {
     /**
      * Custom armor material.
      */
-    public static final ArmorMaterial GOLD_CROWN =
+    private static final ArmorMaterial GOLD_CROWN =
         EnumHelper.addArmorMaterial(
             "GOLD_CROWN",
             "lilysscarymod:gold_crown",
@@ -32,10 +32,15 @@ public class ItemGoldCrown extends ItemCrown {
             25);
 
     /**
+     * Render index for the texture.
+     */
+    private static final int ARMOR_RENDER_INDEX = 1;
+
+    /**
      * Initializes a new instance of the ItemGoldCrown class.
      */
     public ItemGoldCrown() {
-        super(GOLD_CROWN, ArmorRenderIndex.CHAIN);
+        super(GOLD_CROWN, ARMOR_RENDER_INDEX);
         this.setUnlocalizedName(NAME);
     }
 }

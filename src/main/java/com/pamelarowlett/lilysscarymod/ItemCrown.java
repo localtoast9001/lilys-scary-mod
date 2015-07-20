@@ -21,7 +21,7 @@ public abstract class ItemCrown
      */
     protected ItemCrown(
         final ArmorMaterial material,
-        final ArmorRenderIndex renderIndex) {
-        super(material, renderIndex.getValue(), 0);
+        final int renderIndex) {
+        super(material, renderIndex, 0);
     }
 }
