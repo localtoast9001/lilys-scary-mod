@@ -3,7 +3,6 @@
  */
 package com.pamelarowlett.lilysscarymod;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -45,12 +44,18 @@ public class LilysScaryMod {
     private static ItemGoldCrown goldCrown;
 
     /**
+     * Bathing Suit.
+     */
+    private static ItemBathingSuit bathingSuit;
+
+    /**
      * Init event.
      * @param event initialization parameters.
      */
     @EventHandler
     public final void init(final FMLInitializationEvent event) {
         this.initCrowns();
+        this.initBathingSuits();
     }
 
     /**
@@ -70,5 +75,14 @@ public class LilysScaryMod {
             "III",
             'D', diamond,
             'I', goldIngot);
+    }
+
+    /**
+     * Registers bathing suits and recipes.
+     */
+    private void initBathingSuits() {
+        bathingSuit = new ItemBathingSuit();
+        GameRegistry.registerItem(bathingSuit, ItemBathingSuit.ID);
+        proxy.registerInventoryModel(bathingSuit, ItemBathingSuit.ID, 0);
     }
 }
