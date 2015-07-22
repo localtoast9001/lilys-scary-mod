@@ -1,0 +1,16 @@
+[
+{
+  "modid": "lilysscarymod",
+  "name": "Lily's Scary Mod",
+  "description": "Trolling Plus.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["PrincessLight", "localtoast9001"],
+  "credits": "Lily is 5 years old and designed all aspects of this mod.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
