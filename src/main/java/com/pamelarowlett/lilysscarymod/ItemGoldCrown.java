@@ -3,6 +3,8 @@
  */
 package com.pamelarowlett.lilysscarymod;
 
+import net.minecraftforge.common.util.EnumHelper;
+
 /**
  * Gold Crown item.
  * @author jrowlett
