@@ -3,14 +3,12 @@
  */
 package com.pamelarowlett.lilysscarymod;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 
 /**
@@ -18,7 +16,7 @@ import net.minecraftforge.common.util.EnumHelper;
  * @author jrowlett
  *
  */
-public class ItemBathingSuit extends ItemArmor {
+public class ItemBathingSuit extends ItemArmor implements IArmorEffect {
     /**
      * ID for registration.
      */
@@ -28,11 +26,16 @@ public class ItemBathingSuit extends ItemArmor {
      * Unlocalized name.
      */
     private static final String NAME = "bathing_suit";
-    
+
     /**
      * Skin layer for the bathing suit.
      */
     private static final int LAYER = 2;
+
+    /**
+     * Duration for the water breathing effect.
+     */
+    private static final int WATER_BREATHING_DURATION = 50;
 
     /**
      * Custom armor material.
@@ -41,9 +44,9 @@ public class ItemBathingSuit extends ItemArmor {
         EnumHelper.addArmorMaterial(
             "BATHING_SUIT",
             "lilysscarymod:bathing_suit",
-            7,
-            new int[] {2, 5, 3, 1},
-            25);
+            1,
+            new int[] {1, 1, 1, 1},
+            0);
 
     /**
      * Initializes a new instance of the ItemBathingSuit class.
@@ -52,25 +55,21 @@ public class ItemBathingSuit extends ItemArmor {
         super(BATHING_SUIT, LAYER, ArmorType.LEGGINGS.ordinal());
         this.setUnlocalizedName(NAME);
     }
-    
-    @Override 
-    public void onUpdate(
-    	ItemStack item,
-    	World world,
-    	Entity entity,
-    	int par4,
-    	boolean par5) {
-    	super.onUpdate(item, world, entity, par4, par5);
-    	EntityPlayer player = (EntityPlayer) entity;
-    	System.out.println("---");
-    	System.out.println(new Integer(par4).toString());
-    	System.out.println(new Boolean(par5).toString());
-    	System.out.println(player.getCurrentArmor(0));
-    	System.out.println(player.getCurrentArmor(1));
-    	System.out.println(player.getCurrentArmor(2));
-    	System.out.println(player.getCurrentArmor(3));
-		System.out.println("Adding water breathing effect.");
-    	player.addPotionEffect(
-    		new PotionEffect(Potion.waterBreathing.id, 500));
+
+    /**
+     * Gets the potion effect to apply when wearing the armor.
+     * @param player the player wearing the armor.
+     * @param itemStack the armor inventory item stack.
+     * @param armorSlot which armor slot the item is in.
+     * @return the potion effect to apply or null to apply no effect.
+     */
+    @Override
+    public final PotionEffect getPotionEffect(
+        final EntityPlayer player,
+        final ItemStack itemStack,
+        final int armorSlot) {
+        return new PotionEffect(
+            Potion.waterBreathing.id,
+            WATER_BREATHING_DURATION);
     }
 }

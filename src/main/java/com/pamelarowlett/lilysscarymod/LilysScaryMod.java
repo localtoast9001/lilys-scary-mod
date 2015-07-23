@@ -5,10 +5,12 @@ package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -56,6 +58,15 @@ public class LilysScaryMod {
     public final void init(final FMLInitializationEvent event) {
         this.initCrowns();
         this.initBathingSuits();
+    }
+
+    /**
+     * Post-init event.
+     * @param event post init parameters.
+     */
+    @EventHandler
+    public final void postInit(final FMLPostInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(new ArmorEffectEventHandler());
     }
 
     /**
