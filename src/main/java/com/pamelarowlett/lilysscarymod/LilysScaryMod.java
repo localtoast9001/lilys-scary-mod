@@ -33,6 +33,11 @@ public class LilysScaryMod {
     public static final String VERSION = "1.0";
 
     /**
+     * Metadata for the water breathing potion items.
+     */
+    private static final int[] WATER_BREATHING_META = new int[] {8237, 8269};
+
+    /**
      * Gets created by FML to specialize client vs. server calls.
      */
     @SidedProxy(
@@ -95,5 +100,22 @@ public class LilysScaryMod {
         bathingSuit = new ItemBathingSuit();
         GameRegistry.registerItem(bathingSuit, ItemBathingSuit.ID);
         proxy.registerInventoryModel(bathingSuit, ItemBathingSuit.ID, 0);
+
+        //recipe.
+        ItemStack bathingSuitStack = new ItemStack(bathingSuit, 1, 0);
+        ItemStack leather = new ItemStack(Items.leather, 1, 0);
+        for (int i = 0; i < WATER_BREATHING_META.length; i++) {
+            ItemStack waterBreathingPotion = new ItemStack(
+                Items.potionitem,
+                1,
+                WATER_BREATHING_META[i]);
+            GameRegistry.addRecipe(
+                bathingSuitStack,
+                "LPL",
+                "LLL",
+                " L ",
+                'L', leather,
+                'P', waterBreathingPotion);
+        }
     }
 }
