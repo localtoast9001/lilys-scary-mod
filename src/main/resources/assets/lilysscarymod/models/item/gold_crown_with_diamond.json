@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "lilysscarymod:items/n_gold_crown"
+        "layer0": "lilysscarymod:items/d_gold_crown"
     },
     "display": {
         "thirdperson": {

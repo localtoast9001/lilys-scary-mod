@@ -15,6 +15,20 @@ public abstract class ItemCrown
     extends ItemArmor {
 
     /**
+     * Render index for the texture.
+     */
+    private static final int DEFAULT_ARMOR_RENDER_INDEX = 1;
+
+    /**
+     * Initializes a new instance of the ItemCrown class.
+     * @param material the armor material.
+     */
+    protected ItemCrown(
+        final ArmorMaterial material) {
+        this(material, DEFAULT_ARMOR_RENDER_INDEX);
+    }
+
+    /**
      * Initializes a new instance of the ItemCrown class.
      * @param material the armor material.
      * @param renderIndex the render index.

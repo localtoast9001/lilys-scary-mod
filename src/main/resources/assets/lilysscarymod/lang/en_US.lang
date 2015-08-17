@@ -1,3 +1,14 @@
-item.gold_crown.name=Gold Crown
+item.n_gold_crown.name=Gold Crown
+item.d_gold_crown.name=Gold Crown with Diamond Gem
+item.e_gold_crown.name=Gold Crown with Emerald Gem
+item.r_gold_crown.name=Gold Crown with Redstone Gem
+item.n_iron_crown.name=Iron Crown
+item.d_iron_crown.name=Iron Crown with Diamond Gem
+item.e_iron_crown.name=Iron Crown with Emerald Gem
+item.f_iron_crown.name=Iron Crown with Flint Gem
+item.r_iron_crown.name=Iron Crown with Redstone Gem
+item.n_diamond_crown.name=Diamond Crown
+item.e_diamond_crown.name=Diamond Crown with Emerald Gem
+item.r_diamond_crown.name=Diamond Crown with Redstone Gem
 item.bathing_suit.name=Bathing Suit
 
