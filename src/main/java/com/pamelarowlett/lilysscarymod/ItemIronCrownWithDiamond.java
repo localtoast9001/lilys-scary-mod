@@ -4,6 +4,8 @@
 package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 /**
@@ -31,7 +33,9 @@ public class ItemIronCrownWithDiamond extends ItemCrown {
             "lilysscarymod:d_iron_crown",
             7,
             new int[] {2, 5, 3, 1},
-            25);
+            25,
+            SoundEvent.REGISTRY.getObject(new ResourceLocation("item.armor.equip_iron")),
+            1.0f);
 
     /**
      * Initializes a new instance of the ItemIronCrownWithDiamond class.

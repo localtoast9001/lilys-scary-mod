@@ -3,6 +3,8 @@
  */
 package com.pamelarowlett.lilysscarymod;
 
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 /**
@@ -30,7 +32,9 @@ public class ItemGoldCrown extends ItemCrown {
             "lilysscarymod:n_gold_crown",
             7,
             new int[] {2, 5, 3, 1},
-            25);
+            25,
+            SoundEvent.REGISTRY.getObject(new ResourceLocation("item.armor.equip_gold")),
+            1.0f);
 
     /**
      * Initializes a new instance of the ItemGoldCrown class.

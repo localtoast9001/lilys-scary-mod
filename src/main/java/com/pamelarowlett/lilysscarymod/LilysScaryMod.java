@@ -5,6 +5,7 @@ package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -35,7 +36,7 @@ public class LilysScaryMod {
     /**
      * Metadata for the water breathing potion items.
      */
-    private static final int[] WATER_BREATHING_META = new int[] {8237, 8269};
+    private static final int[] WATER_BREATHING_META = new int[] {8205, 8237, 8269, 8301};
 
     /**
      * Gets created by FML to specialize client vs. server calls.
@@ -243,12 +244,12 @@ public class LilysScaryMod {
         ItemStack goldCrownStack = new ItemStack(goldCrown, 1, 0);
         ItemStack ironCrownStack = new ItemStack(ironCrown, 1, 0);
         ItemStack diamondCrownStack = new ItemStack(diamondCrown, 1, 0);
-        ItemStack goldIngot = new ItemStack(Items.gold_ingot, 1, 0);
-        ItemStack ironIngot = new ItemStack(Items.iron_ingot, 1, 0);
-        ItemStack diamond = new ItemStack(Items.diamond, 1, 0);
-        ItemStack redstone = new ItemStack(Items.redstone, 1, 0);
-        ItemStack flint = new ItemStack(Items.flint, 1, 0);
-        ItemStack emerald = new ItemStack(Items.emerald, 1, 0);
+        ItemStack goldIngot = new ItemStack(Items.GOLD_INGOT, 1, 0);
+        ItemStack ironIngot = new ItemStack(Items.IRON_INGOT, 1, 0);
+        ItemStack diamond = new ItemStack(Items.DIAMOND, 1, 0);
+        ItemStack redstone = new ItemStack(Items.REDSTONE, 1, 0);
+        ItemStack flint = new ItemStack(Items.FLINT, 1, 0);
+        ItemStack emerald = new ItemStack(Items.EMERALD, 1, 0);
         GameRegistry.addRecipe(
             goldCrownStack,
             "   ",
@@ -342,10 +343,10 @@ public class LilysScaryMod {
 
         //recipe.
         ItemStack bathingSuitStack = new ItemStack(bathingSuit, 1, 0);
-        ItemStack leather = new ItemStack(Items.leather, 1, 0);
+        ItemStack leather = new ItemStack(Items.LEATHER, 1, 0);
         for (int i = 0; i < WATER_BREATHING_META.length; i++) {
             ItemStack waterBreathingPotion = new ItemStack(
-                Items.potionitem,
+                Items.POTIONITEM,
                 1,
                 WATER_BREATHING_META[i]);
             GameRegistry.addRecipe(

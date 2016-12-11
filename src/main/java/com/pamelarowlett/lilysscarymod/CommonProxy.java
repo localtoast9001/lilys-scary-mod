@@ -4,6 +4,7 @@
 package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 
 /**
  * Base class to specialize client vs. server calls in the mod.
@@ -29,11 +30,11 @@ public abstract class CommonProxy {
         final int metadata);
 
     /**
-     * Helper to add a model variant in the ModelBakery.
+     * Helper to add model variants to the ModelBakery.
      * @param item the main item.
-     * @param variantName the variant name.
+     * @param names the variant names.
      */
-    public abstract void addModelBakeryVariant(
+    public abstract void registerItemVariants(
         final Item item,
-        final String variantName);
+        final ResourceLocation... names);
 }

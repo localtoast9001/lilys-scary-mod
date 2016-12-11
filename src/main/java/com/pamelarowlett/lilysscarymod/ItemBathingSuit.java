@@ -7,8 +7,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 /**
@@ -46,13 +49,18 @@ public class ItemBathingSuit extends ItemArmor implements IArmorEffect {
             "lilysscarymod:bathing_suit",
             1,
             new int[] {1, 1, 1, 1},
-            0);
+            0,
+            SoundEvent.REGISTRY.getObject(new ResourceLocation("item.armor.equip_leather")),
+            1.0f);
 
     /**
      * Initializes a new instance of the ItemBathingSuit class.
      */
     public ItemBathingSuit() {
-        super(BATHING_SUIT, LAYER, ArmorType.LEGGINGS.ordinal());
+        super(
+            BATHING_SUIT,
+            LAYER,
+            EntityEquipmentSlot.LEGS);
         this.setUnlocalizedName(NAME);
     }
 
@@ -60,16 +68,14 @@ public class ItemBathingSuit extends ItemArmor implements IArmorEffect {
      * Gets the potion effect to apply when wearing the armor.
      * @param player the player wearing the armor.
      * @param itemStack the armor inventory item stack.
-     * @param armorSlot which armor slot the item is in.
      * @return the potion effect to apply or null to apply no effect.
      */
     @Override
     public final PotionEffect getPotionEffect(
         final EntityPlayer player,
-        final ItemStack itemStack,
-        final int armorSlot) {
+        final ItemStack itemStack) {
         return new PotionEffect(
-            Potion.waterBreathing.id,
+            Potion.REGISTRY.getObject(new ResourceLocation("water_breathing")),
             WATER_BREATHING_DURATION);
     }
 }

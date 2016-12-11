@@ -23,20 +23,19 @@ public class ArmorEffectEventHandler {
     @SubscribeEvent
     public final void onLivingUpdate(
         final LivingEvent.LivingUpdateEvent event) {
-        if (!(event.entity instanceof EntityPlayer)) {
+        if (!(event.getEntity() instanceof EntityPlayer)) {
             return;
         }
 
-        EntityPlayer player = (EntityPlayer) event.entity;
-        for (int i = 0; i < ArmorType.values().length; i++) {
-            ItemStack itemStack = player.getCurrentArmor(i);
+        EntityPlayer player = (EntityPlayer) event.getEntity();
+        Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
+        for (ItemStack itemStack : playerArmor) {
             if (itemStack != null && itemStack.stackSize > 0) {
                 Item item = itemStack.getItem();
                 if (item instanceof IArmorEffect) {
                     this.updateArmorEffect(
                         player,
                         itemStack,
-                        i,
                         (IArmorEffect) item);
                 }
             }
@@ -47,19 +46,16 @@ public class ArmorEffectEventHandler {
      * calls the armor effect interface and updates the player with the effect.
      * @param player the player entity.
      * @param itemStack the item stack with the armor.
-     * @param armorSlot the armor slot the item is in.
      * @param armorEffect the armor effect interface.
      */
     private void updateArmorEffect(
         final EntityPlayer player,
         final ItemStack itemStack,
-        final int armorSlot,
         final IArmorEffect armorEffect) {
         PotionEffect potionEffect =
             armorEffect.getPotionEffect(
             player,
-            itemStack,
-            armorSlot);
+            itemStack);
         if (potionEffect != null) {
             player.addPotionEffect(potionEffect);
         }

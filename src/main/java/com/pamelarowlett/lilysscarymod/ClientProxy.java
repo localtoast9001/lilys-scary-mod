@@ -4,9 +4,10 @@
 package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.model.ModelBakery;
-import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.FMLLog;
 
 /**
@@ -47,20 +48,21 @@ public class ClientProxy extends CommonProxy {
     }
 
     /**
-     * Helper to add a model variant in the ModelBakery.
+     * Helper to add model variants to the ModelBakery.
      * @param item the main item.
-     * @param variantName the variant name.
+     * @param names the variant names.
      */
     @Override
-    public final void addModelBakeryVariant(
+    public final void registerItemVariants(
         final Item item,
-        final String variantName) {
-        FMLLog.fine(
+        final ResourceLocation... names) {
+        for (ResourceLocation variantName : names) {
+            FMLLog.fine(
                 "Registering variant %s for item %s.",
                 variantName,
                 item.getUnlocalizedName());
-        ModelBakery.addVariantName(
-                item,
-                variantName);
+        }
+
+        ModelBakery.registerItemVariants(item, names);
     }
 }

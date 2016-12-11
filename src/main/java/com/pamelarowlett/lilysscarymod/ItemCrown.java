@@ -5,6 +5,7 @@ package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.inventory.EntityEquipmentSlot;
 
 /**
  * Base class of all crown items.
@@ -36,6 +37,6 @@ public abstract class ItemCrown
     protected ItemCrown(
         final ArmorMaterial material,
         final int renderIndex) {
-        super(material, renderIndex, 0);
+        super(material, renderIndex, EntityEquipmentSlot.HEAD);
     }
 }
