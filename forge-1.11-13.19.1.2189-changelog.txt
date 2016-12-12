@@ -1,5 +1,27 @@
 Changelog:
-Build 2185:
+Build 2189:
+	LexManos:
+		Enable Enforcement of modid formatting. Must be lowercase and <= 64
+		characters
+
+Build 1.11-13.19.1.2188:
+	LexManos: Bump version for RB.
+
+Build 1.11-13.19.0.2187:
+	mezz: [1.11.x] Refine fluid placement utilities (#3509)
+
+Build 1.11-13.19.0.2186:
+	LexManos:
+		Properly filter out annotations that are for multiple mods in the same
+		mod source. This prevents disabled mods from getting their proxies
+		injected. Also prevents mods from getting their proxies injected
+		multiple times. Effects the @EventBusSubscriber, @Instance, @Metadata,
+		@SidedProxy annotations. If the target modid is not in the annotation
+		data, and there are multiple mods in the source, it will attempt to find
+		it by matching the annotations's class names. This is a potentially
+		breaking change. Review your logs for "skipping" messages.
+
+Build 1.10.2-12.18.3.2185:
 	LexManos: Bump version number for new Recommended Build.
 
 Build 1.11-13.19.0.2184:
