@@ -4,8 +4,10 @@
 package com.pamelarowlett.lilysscarymod;
 
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -131,6 +133,18 @@ public class LilysScaryMod {
     }
 
     /**
+     * registers an item
+     * @param item item to register
+     * @param itemId item id.
+     */
+    private void registerItem(
+        Item item,
+        String itemId) {
+        item.setRegistryName(new ResourceLocation(MODID, itemId));
+        GameRegistry.register(item);
+    }
+
+    /**
      * Registers crown items and recipes.
      */
     private void initCrowns() {
@@ -143,11 +157,12 @@ public class LilysScaryMod {
      */
     private void registerCrownItems() {
         goldCrown = new ItemGoldCrown();
-        GameRegistry.registerItem(goldCrown, ItemGoldCrown.ID);
+        this.registerItem(goldCrown, ItemGoldCrown.ID);
+        GameRegistry.register(goldCrown);
         proxy.registerInventoryModel(goldCrown, ItemGoldCrown.ID, 0);
 
         goldCrownWithDiamond = new ItemGoldCrownWithDiamond();
-        GameRegistry.registerItem(
+        this.registerItem(
             goldCrownWithDiamond,
             ItemGoldCrownWithDiamond.ID);
         proxy.registerInventoryModel(
@@ -156,7 +171,7 @@ public class LilysScaryMod {
             0);
 
         goldCrownWithEmerald = new ItemGoldCrownWithEmerald();
-        GameRegistry.registerItem(
+        this.registerItem(
             goldCrownWithEmerald,
             ItemGoldCrownWithEmerald.ID);
         proxy.registerInventoryModel(
@@ -165,7 +180,7 @@ public class LilysScaryMod {
             0);
 
         goldCrownWithRedstone = new ItemGoldCrownWithRedstone();
-        GameRegistry.registerItem(
+        this.registerItem(
             goldCrownWithRedstone,
             ItemGoldCrownWithRedstone.ID);
         proxy.registerInventoryModel(
@@ -174,11 +189,11 @@ public class LilysScaryMod {
             0);
 
         ironCrown = new ItemIronCrown();
-        GameRegistry.registerItem(ironCrown, ItemIronCrown.ID);
+        this.registerItem(ironCrown, ItemIronCrown.ID);
         proxy.registerInventoryModel(ironCrown, ItemIronCrown.ID, 0);
 
         ironCrownWithDiamond = new ItemIronCrownWithDiamond();
-        GameRegistry.registerItem(
+        this.registerItem(
             ironCrownWithDiamond,
             ItemIronCrownWithDiamond.ID);
         proxy.registerInventoryModel(
@@ -187,7 +202,7 @@ public class LilysScaryMod {
             0);
 
         ironCrownWithEmerald = new ItemIronCrownWithEmerald();
-        GameRegistry.registerItem(
+        this.registerItem(
             ironCrownWithEmerald,
             ItemIronCrownWithEmerald.ID);
         proxy.registerInventoryModel(
@@ -196,7 +211,7 @@ public class LilysScaryMod {
             0);
 
         ironCrownWithFlint = new ItemIronCrownWithFlint();
-        GameRegistry.registerItem(
+        this.registerItem(
             ironCrownWithFlint,
             ItemIronCrownWithFlint.ID);
         proxy.registerInventoryModel(
@@ -205,7 +220,7 @@ public class LilysScaryMod {
             0);
 
         ironCrownWithRedstone = new ItemIronCrownWithRedstone();
-        GameRegistry.registerItem(
+        this.registerItem(
             ironCrownWithRedstone,
             ItemIronCrownWithRedstone.ID);
         proxy.registerInventoryModel(
@@ -214,11 +229,11 @@ public class LilysScaryMod {
             0);
 
         diamondCrown = new ItemDiamondCrown();
-        GameRegistry.registerItem(diamondCrown, ItemDiamondCrown.ID);
+        this.registerItem(diamondCrown, ItemDiamondCrown.ID);
         proxy.registerInventoryModel(diamondCrown, ItemDiamondCrown.ID, 0);
 
         diamondCrownWithEmerald = new ItemDiamondCrownWithEmerald();
-        GameRegistry.registerItem(
+        this.registerItem(
             diamondCrownWithEmerald,
             ItemDiamondCrownWithEmerald.ID);
         proxy.registerInventoryModel(
@@ -227,7 +242,7 @@ public class LilysScaryMod {
             0);
 
         diamondCrownWithRedstone = new ItemDiamondCrownWithRedstone();
-        GameRegistry.registerItem(
+        this.registerItem(
             diamondCrownWithRedstone,
             ItemDiamondCrownWithRedstone.ID);
         proxy.registerInventoryModel(
@@ -338,7 +353,7 @@ public class LilysScaryMod {
      */
     private void initBathingSuits() {
         bathingSuit = new ItemBathingSuit();
-        GameRegistry.registerItem(bathingSuit, ItemBathingSuit.ID);
+        this.registerItem(bathingSuit, ItemBathingSuit.ID);
         proxy.registerInventoryModel(bathingSuit, ItemBathingSuit.ID, 0);
 
         //recipe.

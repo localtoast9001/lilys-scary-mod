@@ -30,7 +30,7 @@ public class ArmorEffectEventHandler {
         EntityPlayer player = (EntityPlayer) event.getEntity();
         Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
         for (ItemStack itemStack : playerArmor) {
-            if (itemStack != null && itemStack.stackSize > 0) {
+            if (itemStack != null && itemStack.getItemDamage() > 0) {
                 Item item = itemStack.getItem();
                 if (item instanceof IArmorEffect) {
                     this.updateArmorEffect(
